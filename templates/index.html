@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PCR Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="table-container">
+        <h1>Bank Nifty Option Chain Data</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Current Price</th>
+                    <th>CE Open Interest</th>
+                    <th>PE Open Interest</th>
+                    <th>Diff</th>
+                    <th>PCR</th>
+                    <th>Signal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in bnf_data_points %}
+                    <tr class="{{ 'buy' if row.recommendation == 'BUY' else 'sell' }}">
+                        <td>{{ row.time }}</td>
+                        <td>{{ row.underlying_value }}</td>
+                        <td>{{ row.ce_oi }}</td>
+                        <td>{{ row.pe_oi }}</td>
+                        <td>{{ row.oi_difference }}</td>
+                        <td>{{ "%.2f" % row.pe_ce_ratio }}</td>
+                        <td>{{ row.recommendation }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h1>Nifty Option Chain Data</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Current Price</th>
+                    <th>CE Open Interest</th>
+                    <th>PE Open Interest</th>
+                    <th>Diff</th>
+                    <th>PCR</th>
+                    <th>Signal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in nf_data_points %}
+                    <tr class="{{ 'buy' if row.recommendation == 'BUY' else 'sell' }}">
+                        <td>{{ row.time }}</td>
+                        <td>{{ row.underlying_value }}</td>
+                        <td>{{ row.ce_oi }}</td>
+                        <td>{{ row.pe_oi }}</td>
+                        <td>{{ row.oi_difference }}</td>
+                        <td>{{ "%.2f" % row.pe_ce_ratio }}</td>
+                        <td>{{ row.recommendation }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h1>Fin Nifty Option Chain Data</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Current Price</th>
+                    <th>CE Open Interest</th>
+                    <th>PE Open Interest</th>
+                    <th>Diff</th>
+                    <th>PCR</th>
+                    <th>Signal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in fin_data_points %}
+                     <tr class="{{ 'buy' if row.recommendation == 'BUY' else 'sell' }}">
+                        <td>{{ row.time }}</td>
+                        <td>{{ row.underlying_value }}</td>
+                        <td>{{ row.ce_oi }}</td>
+                        <td>{{ row.pe_oi }}</td>
+                        <td>{{ row.oi_difference }}</td>
+                        <td>{{ "%.2f" % row.pe_ce_ratio }}</td>
+                        <td>{{ row.recommendation }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

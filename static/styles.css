@@ -1,0 +1,34 @@
+.table-container {
+    display: block; 
+}
+
+/* Style for individual tables */
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    margin-right: 20px; /* Add some spacing between tables */
+}
+
+/* Style for table headers */
+th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style for table cells */
+td {
+    padding: 8px;
+}
+
+/* Color coding based on recommendation */
+.buy {
+    background-color: #c8e6c9; /* Light green for "Buy" recommendation */
+}
+
+.sell {
+    background-color: #ffcdd2; /* Light red for "Sell" recommendation */
+}
